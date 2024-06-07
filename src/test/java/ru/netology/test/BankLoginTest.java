@@ -40,12 +40,12 @@ public class BankLoginTest {
         loginPage.verifyErrorNotificationVisiblity();
     }
     @Test
-    void randomError() {
+    void randomVerifiCodeError() {
         var loginPage = open("http://Localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfoWithTestData();
         var verificationPage = loginPage.validLogin(authInfo);
-        verificationPage.verifyVerificationPageVisiblity();
         var verificationCode = DataHelper.generateRandomVerificationCode();
+        loginPage.verifyErrorNotificationVisiblity();
 
 
     }
